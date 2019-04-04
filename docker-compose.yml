@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    network_mode: bridge
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:8080"
+  rabbit:
+    image: rabbitmq:management
+    labels:
+      vhost: vhost.test
